@@ -93,7 +93,7 @@ input[type="search"] {
     outline: none;
     position: relative;
     background: none;
-    -webkit-appearance: none;
+    /* -webkit-appearance: none; */
     width: 276px;
     height: 55px;
     vertical-align: middle;
@@ -188,7 +188,6 @@ input[type="search"]::placeholder {
 /* Footer */
 
 .footer{
-    margin-top: 100px;
     padding-top: 150px;
     height: 462px;
     background: #F7F7F7;
@@ -280,6 +279,10 @@ input[type="search"]::placeholder {
     font-weight: 700;
 }
 
+.products{
+    position: relative;
+}
+
 .product-card{
     background: #FAFAFA;
     margin-top: 100px;
@@ -354,8 +357,8 @@ input[type="search"]::placeholder {
     background: #FFFFFF;
     border: none;
     position: absolute;
-    top: 40%;
-    right: -25px;
+    top: 50%;
+    right: -20px;
     box-shadow: 0 0 5px #cecece;
 
 
@@ -369,7 +372,7 @@ input[type="search"]::placeholder {
     background: #FFFFFF;
     border: none;
     position: absolute;
-    top: 40%;
+    top: 50%;
     left: -25px;
     box-shadow: 0 0 5px #cecece;
 }
@@ -381,6 +384,9 @@ input[type="search"]::placeholder {
 
 /* Review Page */
 
+.reviews{
+    position: relative;
+}
 .review-page{
     margin-bottom: 100px;
 }
@@ -456,9 +462,6 @@ input[type="search"]::placeholder {
     padding: 30px 0;;
 }
 
-.form__body{
-
-}
 
 .form__title{
     font-size:  40px;

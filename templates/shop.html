@@ -10,18 +10,15 @@
 
             <div class="product-menu">
                 <ul class="nav nav-pills d-flex justify-content-between">
+                    {% for category in categories %}
                     <li class="nav-item">
-                        <button  class="category-btn selected">Chair</button>
+                        {% if category == categories[0] %}
+                        <button  class="category-btn selected">{{category}}</button>
+                        {% else %}
+                        <button  class="category-btn ">{{category}}</button>
+                        {% endif %}
                     </li>
-                    <li class="nav-item">
-                        <button  class="category-btn">Beds</button>
-                    </li>
-                    <li class="nav-item">
-                        <button  class="category-btn">Sofa</button>
-                    </li>
-                    <li class="nav-item">
-                        <button  class="category-btn">Lamp</button>
-                    </li>
+                    {% endfor %}
                 </ul>
             </div>
 
@@ -31,10 +28,13 @@
 
             <div class="container products">
                 <div class="row justify-content-between">
+
+                    {% for name, pic, price in chairs %}
+                    
                     <div class="col-3">
                         <div class="product-card">
                             <div class="product-pic d-flex justify-content-center">
-                                <a href="#"><img src="{{ url_for('static', filename='img/Chair1.png') }}" alt=""></a>
+                                <a href="#"><img src="{{ url_for('static', filename='img/'+ pic) }}" alt=""></a>
                             </div>
                             <div class="product-pic-bg">
 
@@ -42,50 +42,16 @@
                             <div class="product-info">
                                 <div class="product-details">
                                     <p>Chair</p>
-                                    <h4>Sakarias Armchair</h4>
+                                    <h4>{{name}}</h4>
                                     <div class="product-rate">
-                                        <i class="fa-solid fa-star"></i>
-                                        <i class="fa-solid fa-star"></i>
-                                        <i class="fa-solid fa-star"></i>
-                                        <i class="fa-solid fa-star"></i>
-                                        <i class="fa-solid fa-star"></i>
+                                        {% for i in range(5) %}
+                                            <i class="fa-solid fa-star"></i>
+                                        {% endfor %}
                                     </div>
                                 </div>
                                 <div class="product-bottom d-flex justify-content-between">
                                     <div class="product-price align-self-center">
-                                        <p>$392</p>
-                                    </div>
-                                    <div class="add-button">
-                                        <a href="#"><img src="{{ url_for('static', filename='img/add_button.png') }}" alt=""></a>
-                                    </div>
-                                </div>
-                            </div>
-                            <button class="left-btn"><img src="{{ url_for('static', filename='img/left.png') }}" alt=""></button>
-                        </div>
-                    </div>
-                    <div class="col-3">
-                        <div class="product-card">
-                            <div class="product-pic d-flex justify-content-center">
-                                <a href="#"><img src="{{ url_for('static', filename='img/Chair2.png') }}" alt=""></a>
-                            </div>
-                            <div class="product-pic-bg">
-
-                            </div>
-                            <div class="product-info">
-                                <div class="product-details">
-                                    <p>Chair</p>
-                                    <h4>Baltsar Chair</h4>
-                                    <div class="product-rate">
-                                        <i class="fa-solid fa-star"></i>
-                                        <i class="fa-solid fa-star"></i>
-                                        <i class="fa-solid fa-star"></i>
-                                        <i class="fa-solid fa-star"></i>
-                                        <i class="fa-solid fa-star"></i>
-                                    </div>
-                                </div>
-                                <div class="product-bottom d-flex justify-content-between">
-                                    <div class="product-price align-self-center">
-                                        <p>$299</p>
+                                        <p>{{price}}</p>
                                     </div>
                                     <div class="add-button">
                                         <a href="#"><img src="{{ url_for('static', filename='img/add_button.png') }}" alt=""></a>
@@ -94,77 +60,20 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-3">
-                        <div class="product-card">
-                            <div class="product-pic d-flex justify-content-center">
-                                <a href="#"><img src="{{ url_for('static', filename='img/Chair3.png') }}" alt=""></a>
-                            </div>
-                            <div class="product-pic-bg">
 
-                            </div>
-                            <div class="product-info">
-                                <div class="product-details">
-                                    <p>Chair</p>
-                                    <h4>Anjay Chair</h4>
-                                    <div class="product-rate">
-                                        <i class="fa-solid fa-star"></i>
-                                        <i class="fa-solid fa-star"></i>
-                                        <i class="fa-solid fa-star"></i>
-                                        <i class="fa-solid fa-star"></i>
-                                        <i class="fa-solid fa-star"></i>
-                                    </div>
-                                </div>
-                                <div class="product-bottom d-flex justify-content-between">
-                                    <div class="product-price align-self-center">
-                                        <p>$519</p>
-                                    </div>
-                                    <div class="add-button">
-                                        <a href="#"><img src="{{ url_for('static', filename='img/add_button.png') }}" alt=""></a>
-                                    </div>
-                                </div>
-                            </div>
+                    {% endfor %}
 
-                        </div>
-                    </div>
-                    <div class="col-3">
-                        <div class="product-card">
-                            <div class="product-pic d-flex justify-content-center">
-                                <a href="#"><img src="{{ url_for('static', filename='img/Chair4.png') }}" alt=""></a>
-                            </div>
-                            <div class="product-pic-bg">
-                            </div>
-                            <div class="product-info">
-                                <div class="product-details">
-                                    <p>Chair</p>
-                                    <h4>Nyantuy Chair</h4>
-                                    <div class="product-rate">
-                                        <i class="fa-solid fa-star"></i>
-                                        <i class="fa-solid fa-star"></i>
-                                        <i class="fa-solid fa-star"></i>
-                                        <i class="fa-solid fa-star"></i>
-                                        <i class="fa-solid fa-star"></i>
-                                    </div>
-                                </div>
-                                <div class="product-bottom d-flex justify-content-between">
-                                    <div class="product-price align-self-center">
-                                        <p>$921</p>
-                                    </div>
-                                    <div class="add-button">
-                                        <a href="#"><img src="{{ url_for('static', filename='img/add_button.png') }}" alt=""></a>
-                                    </div>
-                                </div>
-                            </div>
-                                <button class="right-btn"><img src="{{ url_for('static', filename='img/right.png') }}" alt=""></button>
-                        </div>
-                    </div>
                 </div>
+
+                <!-- <button class="left-btn"><img src="{{ url_for('static', filename='img/left.png') }}" alt=""></button>
+                <button class="right-btn"><img src="{{ url_for('static', filename='img/right.png') }}" alt=""></button> -->
             </div>
         <div class="container-fluid text-center">
-            <a href="full_shop.html" class="view-all">
+            <a href="{{ url_for('full_shop') }}" class="view-all">
                 View more
             </a>
         </div>
     </div>
-    <script src="js\main.js"></script>
+    <!-- <script src="js\main.js"></script> -->
 
 {% endblock %}

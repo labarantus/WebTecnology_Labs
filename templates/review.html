@@ -2,120 +2,67 @@
 
 {% block content %}
 
-<div class="container reviews">
-            <div class="row justify-content-between">
-                <div class="col-4">
-                    <div class="review-card d-flex justify-content-center align-items-end" style="background-image: url(../img/rev1.png);" >
-                        <button class="left-btn"><img src="{{url_for('static', filename='img/left.png')}}" alt=""></button>
-                        <div class="review-content text-center">
-                            <div class="circle">
-                                <img src="{{url_for('static', filename='img/client1.png')}}" alt="">
-                            </div>
-                            <h4>Bang Upin</h4>
-                            <h5>Pedagang Asongan</h5>
-                            <div class="review-text">
-                                <p>“Terimakasih banyak, kini ruanganku menjadi lebih mewah dan terlihat mahal“</p>
-                            </div>
-
-                            <div class="product-rate">
-                                <i class="fa-solid fa-star"></i>
-                                <i class="fa-solid fa-star"></i>
-                                <i class="fa-solid fa-star"></i>
-                                <i class="fa-solid fa-star"></i>
-                                <i class="fa-solid fa-star"></i>
-                            </div>
-                        </div>
-                    </div>
-
-                </div>
-
-                <div class="col-4">
-                    <div class="review-card d-flex justify-content-center align-items-end" style="background-image: {{url_for('static', filename='img/rev2.png')}}" >
-                        <div class="review-content text-center align-items-end">
-                            <div class="circle">
-                                <img src="{{url_for('static', filename='img/client2.png')}}" alt="">
-                            </div>
-                            <h4>Ibuk Sukijan</h4>
-                            <h5>Ibu Rumah Tangga</h5>
-                            <div class="review-text">
-                                <p>“Makasih Panto, aku sekarang berasa tinggal di apartment karena barang-barang yang terlihat mewah“</p>
-                            </div>
-
-                            <div class="product-rate">
-                                <i class="fa-solid fa-star"></i>
-                                <i class="fa-solid fa-star"></i>
-                                <i class="fa-solid fa-star"></i>
-                                <i class="fa-solid fa-star"></i>
-                                <i class="fa-solid fa-star"></i>
-                            </div>
-                        </div>
-                    </div>
-
-                </div>
-                <div class="col-4">
-                    <div class="review-card d-flex justify-content-center align-items-end" style="background-image: url(../img/rev3.png);" >
-                        <button class="right-btn"><img src="{{url_for('static', filename='img/right.png')}}" alt=""></button>
-                        <div class="review-content text-center ">
-                            <div class="circle">
-                                <img src="{{url_for('static', filename='img/client3.png')}}" alt="">
-                            </div>
-                            <h4>Mpok Ina</h4>
-                            <h5>Karyawan Swasta</h5>
-                            <div class="review-text">
-                                <p>“Sangat terjangkau untuk kantong saya yang tidak terlalu banyak“</p>
-                            </div>
-                            <div class="product-rate">
-                                <i class="fa-solid fa-star"></i>
-                                <i class="fa-solid fa-star"></i>
-                                <i class="fa-solid fa-star"></i>
-                                <i class="fa-solid fa-star"></i>
-                                <i class="fa-solid fa-star"></i>
-                            </div>
-                        </div>
-                    </div>
-
-                </div>
-            </div>
-      </div>
-
-
-      <div class="review-form ">
-        <form action="#" id="form" class=""form__body>
-          <h1 class="form__title text-center"> Leave your review</h1>
-          <div class="form__item">
-            <label for="formName" class="form__label">Name*:</label>
-            <input id="formName" type="text" name="name" class="form__input">
-          </div>
-          <div class="form__item">
-            <label for="formEmail" class="form__label">E-mail*:</label>
-            <input id="formEmail" type="text" name="email" class="form__input">
-          </div>
-          <div class="form__item">
-            <label for="formMessage" class="form__label">Review*:</label>
-            <textarea id="formMessage"  name="message" class="form__input"></textarea>
-          </div>
-          <button class="form__button">Send</button>
-        </form>
-      </div>
+<div class="review-page">
+    <div class="container-fluid text-center review-page__header">
+        <h5> TESTIMONIALS</h5>
+        <h1 class="page-header1">
+          Our Client Reviews
+        </h1>
     </div>
 
-    <div class="modal" data-modal="1">
-      <!--   Svg иконка для закрытия окна  -->
-      <svg class="modal__cross" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M23.954 21.03l-9.184-9.095 9.092-9.174-2.832-2.807-9.09 9.179-9.176-9.088-2.81 2.81 9.186 9.105-9.095 9.184 2.81 2.81 9.112-9.192 9.18 9.1z"/></svg>
-      <p class="modal__title">Заголовок окна 1</p>
-   </div>
+    <div class="container reviews">
+        <div class="row justify-content-between">
+            {% for bg_pic, cl_pic, cl_name, cl_job, rev_text in reviews %}
+            <div class="col-4">
+                <div class="review-card d-flex justify-content-center align-items-end" style="background-image: url(../static/img/{{bg_pic}});" >
+                    <!-- <button class="left-btn"><img src="{{url_for('static', filename='img/left.png')}}" alt=""></button> -->
+                    <div class="review-content text-center">
+                        <div class="circle">
+                            <img src="{{url_for('static', filename='img/' + cl_pic)}}" alt="">
+                        </div>
+                        <h4>{{cl_name}}</h4>
+                        <h5>{{cl_job}}</h5>
+                        <div class="review-text">
+                            <p>“{{rev_text}}“</p>
+                        </div>
 
-   <div class="modal" data-modal="2">
-      <!--   Svg иконка для закрытия окна  -->
-      <svg class="modal__cross" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M23.954 21.03l-9.184-9.095 9.092-9.174-2.832-2.807-9.09 9.179-9.176-9.088-2.81 2.81 9.186 9.105-9.095 9.184 2.81 2.81 9.112-9.192 9.18 9.1z"/></svg>
-      <p class="modal__title">Заголовок окна 2</p>
-   </div>
+                        <div class="product-rate">
+                            {% for i in range(5) %}
+                                <i class="fa-solid fa-star"></i>
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
 
-   <!-- Подложка под модальным окном -->
-   <div class="overlay" id="overlay-modal"></div>
+            </div>
+            {% endfor %}
 
-    <script src="{{url_for('static', filename='js/main.js')}}"></script>
-  </body>
+    
+        </div>
+
+    <div class="review-form ">
+        <form action="#" id="form" class=""form__body>
+        <h1 class="form__title text-center"> Leave your review</h1>
+        <div class="form__item">
+            <label for="formName" class="form__label">Name*:</label>
+            <input id="formName" type="text" name="name" class="form__input">
+        </div>
+        <div class="form__item">
+            <label for="formEmail" class="form__label">E-mail:</label>
+            <input id="formEmail" type="text" name="email" class="form__input">
+        </div>
+        <div class="form__item">
+            <label for="formMessage" class="form__label">Review*:</label>
+            <textarea id="formMessage"  name="message" class="form__input"></textarea>
+        </div>
+        <p id="respond_message" style="height: 20px; margin: 15px;"> </p>
+        <input type="submit" id="sendbtn" value="Send" class="form__button">
+        <!-- <input type="button" value="Отправить" class="form__button" onclick="printMessage();"> -->
+        </form>
+    </div>
+
+</div>
+    <script src="{{ url_for('static', filename='js/formsend.js') }}"></script>
 
 
 {% endblock %}

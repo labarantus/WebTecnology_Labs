@@ -2,19 +2,22 @@ var h1_hide = 1;
 
 $(document).ready(function() {
     
+    //Скрываем блоки с текстом при загрузке страницы
     $(".hidebox p").hide();
     $(".hidebox h1").css("background-color", "#1e1e1e");
     $(".hidebox h1").css("color", "#ffffff");
     $(".page-header span").html()
 
+    //Анимация увеличения изображений при наведении мыши
     $(".product-pic img").hover(function() {
-
+ 
         $(this).animate({
 
             height: "308",
             width: "242",
 
         }, "fast");
+
     }, function() {
 
         $(this).animate({
@@ -23,8 +26,9 @@ $(document).ready(function() {
             width: "220",
 
         }, "fast");
-    });
+    })
 
+    // Раскрытие блока с текстом при клике
     $(".hidebox h1").click(function () {
         if(h1_hide == 1) {
             h1_hide = 0
@@ -40,11 +44,14 @@ $(document).ready(function() {
         
     });
 
+    // Анимация кнопок меню при наведении
     $(".product-menu button").hover(function () {
         $(this).addClass("active"); }).mouseleave(function () {
         $(this).removeClass("active");
      });
 
+     
+    // Анимация кнопок меню при клике
     $('.product-menu button').click(function() {
         $(this).parent().parent().find(".selected").removeClass("selected");
         $(this).addClass("selected");
@@ -53,10 +60,15 @@ $(document).ready(function() {
         
       })
     
+    // Вызов модального окна при отправке формы
     $('.form__button').click(function(event) {
         event.preventDefault();
-    
-        confirm('Отправить отзыв?');
+            let name = document.getElementsByName("name")[0].value;
+            let message = document.getElementsByName("message")[0].value;
+            
+            if(name != "" && message != "")
+                confirm('Отправить отзыв?');
+
       })
 
 });
@@ -101,21 +113,24 @@ const sortTable = function(index, type, isSorted) {
     table.appendChild(tbody);
 };
 
+if(table)
+{
+    table.addEventListener('click', (e) => {
+        const el = e.target;
+        if (el.nodeName != 'TH') return;
+        
+        const index = el.cellIndex;
+        const type = el.getAttribute('data-type');
+        sortTable(index, type, colIndex == index);
+        if (colIndex == index) {
+            colIndex = -1;
+        }
+        else {
+            colIndex = index;
+        }
+    });
+}
 
-table.addEventListener('click', (e) => {
-    const el = e.target;
-    if (el.nodeName != 'TH') return;
-    
-    const index = el.cellIndex;
-    const type = el.getAttribute('data-type');
-    sortTable(index, type, colIndex == index);
-    if (colIndex == index) {
-        colIndex = -1;
-    }
-    else {
-        colIndex = index;
-    }
-});
 
 
 

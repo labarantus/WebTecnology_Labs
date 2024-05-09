@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Демо Bootstrap</title>
+    <title>{{title}}</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -19,13 +19,12 @@
       <div class="container-fluid text-center">
         <div class="row align-items-center">
           <div class="col">
-            <p href="" class="navbar-brand">Panto : Furniture</p>
+            <p href="" class="navbar-brand">Panto</p>
           </div>
           <div class="col-6 links">
-            <a class="navbar-link" href="index.html">Furniture</a>
-            <a class="navbar-link" href="shop.html">Shop</a>
-            <a class="navbar-link" href="about_us.html">About Us</a>
-            <a class="navbar-link" href="review.html">Review</a>
+            {% for subj, link in subjs_links %}
+            <a class="navbar-link" href="{{ url_for(link) }}">{{subj}}</a>
+            {% endfor %}
           </div>
           <div class="col"><a href="#" class="navbar-cart"><img src="{{ url_for('static', filename='img/Bag.png') }}" alt="CART"></a></div>
         </div>
@@ -47,6 +46,8 @@
         <div class="col choosing-us__header">
           Why<br>Choosing Us
         </div>
+
+        {% for i in range(3) %}
         <div class="col choosing-us__card">
           <h3 class="card-header">Luxury facilities</h3>
           <p class="card-content">The advantage of hiring a workspace with us is that givees you comfortable service and all-around facilities.</p>
@@ -54,20 +55,8 @@
             More Info
           </a>
         </div>
-        <div class="col choosing-us__card">
-          <h3 class="card-header">Luxury facilities</h3>
-          <p class="card-content">You can get a workspace of the highst quality at an affordable price and still enjoy the facilities that are oly here.</p>
-          <a href="#" class="card-more_info">
-            More Info
-          </a>
-        </div>
-        <div class="col choosing-us__card">
-          <h3 class="card-header">Luxury facilities</h3>
-          <p class="card-content">We provide many unique work space choices so that you can choose the workspace to your liking.</p>
-          <a href="#" class="card-more_info">
-            More Info
-          </a>
-        </div>
+        {% endfor %}
+
       </div>
     </div>
     <footer>
