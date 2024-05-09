@@ -188,6 +188,7 @@ input[type="search"]::placeholder {
 /* Footer */
 
 .footer{
+    margin-top: 100px;
     padding-top: 150px;
     height: 462px;
     background: #F7F7F7;

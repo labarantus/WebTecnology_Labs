@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Демо Bootstrap</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
@@ -27,7 +27,7 @@
             <a class="navbar-link" href="about_us.html">About Us</a>
             <a class="navbar-link" href="review.html">Review</a>
           </div>
-          <div class="col"><a href="#" class="navbar-cart"><img src="img/Bag.png" alt="CART"></a></div>
+          <div class="col"><a href="#" class="navbar-cart"><img src="{{ url_for('static', filename='img/Bag.png') }}" alt="CART"></a></div>
         </div>
       </div>
       <div class="slogan">
@@ -38,7 +38,7 @@
       <div class="search">
         <form action="" class="search-furniture">
           <input type="search" value="" placeholder="Search furniture" class="search-input">
-          <button type="submit" value="" src="img/search_icon.png" class="search-submit"></button>
+          <button type="submit" value="" src="{{ url_for('static', filename='img/search_icon.png') }}" class="search-submit"></button>
         </form>
       </div>
     </div>
@@ -100,9 +100,9 @@
               <div class="col">
                 <h3 class="footer__card-header">Follow Us</h3>
                 <ul class="footer__list">
-                  <li><a class="footer__link" href="#" ><img src="img/facebook.png"> Facebook</a> </li>
-                  <li><a class="footer__link" href="#"><img src="img/twitter.png"> Twitter</a> </li>
-                  <li><a class="footer__link" href="#"><img src="img/instagram.png"> Instagram</a> </li>
+                  <li><a class="footer__link" href="#" ><img src="{{ url_for('static', filename='img/facebook.png') }}"> Facebook</a> </li>
+                  <li><a class="footer__link" href="#"><img src="{{ url_for('static', filename='img/twitter.png') }}"> Twitter</a> </li>
+                  <li><a class="footer__link" href="#"><img src="{{ url_for('static', filename='img/instagram.png') }}"> Instagram</a> </li>
                 </ul>
               </div>
             <div class="row documents">
@@ -121,6 +121,6 @@
       </section>
   </footer>
 
-  <script src="js\main.js"></script>
+  <script src="{{ url_for('static', filename='js/main.js  ') }}"></script>
   </body>
 </html>

@@ -6,17 +6,16 @@
     <title>Демо Bootstrap</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
     <script src="https://kit.fontawesome.com/93f45804aa.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
-  
-    <script type="text/javascript" src="jquery-3.6.0.min.js"></script>  
+
+    <script type="text/javascript" src="{{ url_for('static', filename='js/jquery-3.6.0.min.js') }}"></script>
   </head>
 
   <body>
-
     <div class="container-fluid text-center navigation">
       <div class="row align-items-center">
         <div class="col">
@@ -28,65 +27,15 @@
           <a class="navbar-link" href="about_us.html">About Us</a>
           <a class="navbar-link" href="review.html">Review</a>
         </div>
-        <div class="col-3"><a href="#" class="navbar-cart"><img src="img/Bag.png" alt="CART"></a></div>
+        <div class="col-3"><a href="#" class="navbar-cart"><img src="{{ url_for('static', filename='img/Bag.png') }}" alt="CART"></a></div>
       </div>
     </div>
-  
-    <div class="container-fluid text-center justify-content-center" style="text-align: center;">
-        <table class="shop-table">
-          <thead>
-            <tr>
-              <th data-type="text">Name</th>
-              <th data-type="not_sorting">Photo</th>
-              <th data-type="integer">Price</th>
-              <th data-type="double">Ocenka</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td class="shop-table__name-item">Name-3</td>
-              <td class="shop-table__img"><img src="img/Chair1.png" alt="" width="200" height="200"></td>
-              <td>5000$
-                <button class="shop-table__cart-btn">
-                  to cart
-                </button>
-              </td>
-              <td>4.9/5</td>
-            </tr>
-            <tr>
-                <td class="shop-table__name-item">Name-1</td>
-                <td class="shop-table__img"><img src="img/Chair2.png" alt="" width="200" height="200"></td>
-                <td>
-                  2000$
-                  <button class="shop-table__cart-btn">
-                    to cart
-                  </button></td>
-                <td>3.7/5</td>
-            </tr>
-            <tr>
-                <td class="shop-table__name-item">Name-2</td>
-                <td class="shop-table__img"><img src="img/Chair3.png" alt="" width="200" height="200"></td>
-                <td>3500$
-                  <button class="shop-table__cart-btn">
-                    to cart
-                  </button>
-                </td>
-                <td>2.9/5</td>
-            </tr>
-            <tr>
-                <td class="shop-table__name-item">Name-4</td>
-                <td class="shop-table__img"><img src="img/Chair4.png" alt="" width="200" height="200"></td>
-                <td>1990$
-                  <button class="shop-table__cart-btn">
-                    to cart
-                  </button>
-                </td>
-                <td>5/5</td>
-            </tr>
-          </tbody>
-          </table>
-    </div>
-    <footer>
+
+
+    {% block content %}{% endblock %}
+
+
+<footer>
       <section class="footer">
           <div class="container">
             <div class="row ">
@@ -94,7 +43,7 @@
                 <h3 class="brand-info-header">Panto</h3>
                 <p class="brand-info-content">The advantage of hiring a workspace with us is that givees you comfortable service and all-around facilities.</p>
               </div>
-              
+
               <div class="col">
                 <h3 class="footer__card-header">Services</h3>
                 <ul class="footer__list">
@@ -103,7 +52,7 @@
                   <li><a class="footer__link" href="#">Branding</a> </li>
                 </ul>
               </div>
-  
+
               <div class="col">
                 <h3 class="footer__card-header">Furniture</h3>
                 <ul class="footer__list">
@@ -112,30 +61,30 @@
                   <li><a class="footer__link" href="#">All</a> </li>
                 </ul>
               </div>
-  
+
               <div class="col">
                 <h3 class="footer__card-header">Follow Us</h3>
                 <ul class="footer__list">
-                  <li><a class="footer__link" href="#" ><img src="img/facebook.png"> Facebook</a> </li>
-                  <li><a class="footer__link" href="#"><img src="img/twitter.png"> Twitter</a> </li>
-                  <li><a class="footer__link" href="#"><img src="img/instagram.png"> Instagram</a> </li>
+                  <li><a class="footer__link" href="#" ><img src="{{ url_for('static', filename='img/facebook.png') }}"> Facebook</a> </li>
+                  <li><a class="footer__link" href="#"><img src="{{ url_for('static', filename='img/twitter.png') }}"> Twitter</a> </li>
+                  <li><a class="footer__link" href="#"><img src="{{ url_for('static', filename='img/instagram.png') }}"> Instagram</a> </li>
                 </ul>
               </div>
             <div class="row documents">
               <div class="col-8">
-                <a>Copyright © 2021</a> 
+                <a>Copyright © 2021</a>
               </div>
               <div class="col">
-                <a>Terms & Conditions</a> 
+                <a>Terms & Conditions</a>
               </div>
               <div class="col">
-                <a>Privacy Policy</a> 
+                <a>Privacy Policy</a>
               </div>
             </div>
             </div>
-          </div>        
+          </div>
       </section>
   </footer>
-  <script src="js\main.js"></script>
+  <script src="{{ url_for('static', filename='js/main.js') }}"></script>
   </body>
   </html>

@@ -1,0 +1,57 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="container-fluid text-center justify-content-center" style="text-align: center;">
+        <table class="shop-table">
+          <thead>
+            <tr>
+              <th data-type="text">Name</th>
+              <th data-type="not_sorting">Photo</th>
+              <th data-type="integer">Price</th>
+              <th data-type="double">Ocenka</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="shop-table__name-item">Name-3</td>
+              <td class="shop-table__img"><img src="{{ url_for('static', filename='img/Chair1.png') }}" alt="" width="200" height="200"></td>
+              <td>5000$
+                <button class="shop-table__cart-btn">
+                  to cart
+                </button>
+              </td>
+              <td>4.9/5</td>
+            </tr>
+            <tr>
+                <td class="shop-table__name-item">Name-1</td>
+                <td class="shop-table__img"><img src="{{ url_for('static', filename='img/Chair2.png') }}" alt="" width="200" height="200"></td>
+                <td>
+                  2000$
+                  <button class="shop-table__cart-btn">
+                    to cart
+                  </button></td>
+                <td>3.7/5</td>
+            </tr>
+            <tr>
+                <td class="shop-table__name-item">Name-2</td>
+                <td class="shop-table__img"><img src="{{ url_for('static', filename='img/Chair3.png') }}" alt="" width="200" height="200"></td>
+                <td>3500$
+                  <button class="shop-table__cart-btn">
+                    to cart
+                  </button>
+                </td>
+                <td>2.9/5</td>
+            </tr>
+            <tr>
+                <td class="shop-table__name-item">Name-4</td>
+                <td class="shop-table__img"><img src="{{ url_for('static', filename='img/Chair4.png') }}" alt="" width="200" height="200"></td>
+                <td>1990$
+                  <button class="shop-table__cart-btn">
+                    to cart
+                  </button>
+                </td>
+                <td>5/5</td>
+            </tr>
+          </tbody>
+          </table>
+    </div>
+{% endblock %}
