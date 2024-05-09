@@ -1,8 +1,9 @@
 from labapp import app
 # Подключаем библиотеку для "рендеринга" html-шаблонов из папки templates
-from flask import render_template, make_response, request, Response, jsonify, json
+from flask import render_template, make_response, request, Response, jsonify, json, session, redirect, url_for
 from . import dbservice    # подключение модуля с CRUD-методами для работы с БД из локального пакета
 from collections import OrderedDict
+import functools
 
 
 subjs = ["Furniture", "Shop", "About Us", "Review"]
@@ -21,6 +22,16 @@ rev_texts = ["Terimakasih banyak, kini ruanganku menjadi lebih mewah dan terliha
                  "Makasih Panto, aku sekarang berasa tinggal di apartment karena barang-barang yang terlihat mewah",
                  "Sangat terjangkau untuk kantong saya yang tidak terlalu banyak"]
 
+# Функция-декоратор для проверки авторизации пользователя
+def login_required(route_func):
+    @functools.wraps(route_func)
+    def decorated_route(*args, **kwargs):
+        # Если не установлен параметр сессии user или значение cookie 'AuthToken' не равно логину пользователя
+        if not session.get('user') or request.cookies.get('AuthToken') != session.get('user'):
+            # перенаправляем на страницу авторизации
+            return redirect(url_for('login'))
+        return route_func(*args, **kwargs)
+    return decorated_route
 
 
 @app.route('/')
@@ -37,6 +48,7 @@ def about_us():
     return render_template('about_us.html', subjs_links = zip(subjs, links), title="About Us")
 
 @app.route('/review')
+@login_required
 def review():
     return render_template('review.html', subjs_links = zip(subjs, links),
                            reviews = zip(rev_bg_pics, cl_pics, cl_names, cl_jobs, rev_texts), title="Review")
@@ -111,6 +123,44 @@ def update_contact_req_by_id(id):
 def delete_contact_req_by_id(id):
     response = dbservice.delete_contact_req_by_id(id)
     return json_response(response)
+
+# Функция-декоратор для проверки авторизации пользователя
+def login_required(route_func):
+    @functools.wraps(route_func)
+    def decorated_route(*args, **kwargs):
+        # Если не установлен параметр сессии user или значение cookie 'AuthToken' не равно логину пользователя
+        if not session.get('user') or request.cookies.get('AuthToken') != session.get('user'):
+            # перенаправляем на страницу авторизации
+            return redirect(url_for('login'))
+        return route_func(*args, **kwargs)
+    return decorated_route
+
+
+# Страница авторизации
+@app.route('/login', methods=['GET', 'POST'])
+def login():
+    # Если POST-запрос
+    if request.method == 'POST':
+        # если нажата кнопка "Зарегистрировать", переадресуем на страницу регистрации
+        if request.form.get('regBtn') == 'true':
+            return redirect(url_for('register'))
+        # иначе запускаем авторизацию по данным формы
+        else:
+            return dbservice.login_user(request.form)
+    else:
+        return render_template('login.html', title='Login')
+
+
+# Страница регистрации
+@app.route('/register', methods=['GET', 'POST'])
+def register():
+    # Если POST-запрос, регистрируем нового пользователя
+    if request.method == 'POST':
+        return dbservice.register_user(request.form)
+    else:
+        return render_template('register.html', title='Register')
+
+
 
 # Обработка ошибки 400 протокола HTTP (Неверный запрос)
 def bad_request():
