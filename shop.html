@@ -12,34 +12,35 @@
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
 
+    <script type="text/javascript" src="jquery-3.6.0.min.js"></script>  
   </head>
   <body>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
     <div class="container-fluid text-center navigation">
-        <div class="row align-items-center">
+        <div class="row align-items-center ">
           <div class="col">
             <a href="index.html" class="navbar-brand">Panto</a>
           </div>
           <div class="col-6 links">
-            <a class="navbar-link">Furniture</a>
-            <a class="navbar-link">Shop</a>
-            <a class="navbar-link">About Us</a>
-            <a class="navbar-link">Contact</a>
+            <a class="navbar-link" href="index.html">Furniture</a>
+            <a class="navbar-link" href="shop.html">Shop</a>
+            <a class="navbar-link" href="about_us.html">About Us</a>
+            <a class="navbar-link" href="review.html">Review</a>
           </div>
           <div class="col-3"><a href="#" class="navbar-cart"><img src="img/Bag.png" alt="CART"></a></div>
         </div>
       </div>
     <div class="grey-box ">
-        <div class="container-fluid text-center">
+        <div class="container-fluid text-center shop-header">
   
             <h1 class="page-header1">
-              Best Selling Product
+              Best Selling: <span>chair</span>
             </h1>
 
             <div class="product-menu">
                 <ul class="nav nav-pills d-flex justify-content-between">
                     <li class="nav-item">
-                        <button  class="category-btn-active">Chair</button>
+                        <button  class="category-btn selected">Chair</button>
                     </li>
                     <li class="nav-item">
                         <button  class="category-btn">Beds</button>
@@ -195,7 +196,7 @@
 
 
         <div class="container-fluid text-center">
-            <a href="#" class="view-all">
+            <a href="full_shop.html" class="view-all">
                 View more
             </a>
         </div>
@@ -204,7 +205,7 @@
         
     </div>
     
-
+    <script src="js\main.js"></script>
   </body>
 
   <footer>

@@ -12,19 +12,24 @@
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
 
+    <script type="text/javascript" src="jquery-3.6.0.min.js"></script>
   </head>
   <body>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
+    <script>
+      console.log($);
+    </script>
+    
     <div class="container-fluid text-center navigation">
       <div class="row align-items-center">
         <div class="col">
           <a href="index.html" class="navbar-brand">Panto</a>
         </div>
         <div class="col-6 links">
-          <a class="navbar-link">Furniture</a>
-          <a class="navbar-link">Shop</a>
-          <a class="navbar-link">About Us</a>
-          <a class="navbar-link">Contact</a>
+            <a class="navbar-link" href="index.html">Furniture</a>
+            <a class="navbar-link" href="shop.html">Shop</a>
+            <a class="navbar-link" href="about_us.html">About Us</a>
+            <a class="navbar-link" href="review.html">Review</a>
         </div>
         <div class="col-3"><a href="#" class="navbar-cart"><img src="img/Bag.png" alt="CART"></a></div>
       </div>
@@ -37,7 +42,8 @@
             </h1>
         </div>
 
-
+      
+      
         <div class="container reviews">
             <div class="row justify-content-between">
                 <div class="col-4">
@@ -112,11 +118,45 @@
 
                 </div>
             </div>
-        </div>        
-       
-    </div>
-    
+      </div>        
+        
 
+      <div class="review-form ">
+        <form action="#" id="form" class=""form__body>
+          <h1 class="form__title text-center"> Leave your review</h1>
+          <div class="form__item">
+            <label for="formName" class="form__label">Name*:</label>
+            <input id="formName" type="text" name="name" class="form__input">
+          </div>
+          <div class="form__item">
+            <label for="formEmail" class="form__label">E-mail*:</label>
+            <input id="formEmail" type="text" name="email" class="form__input">
+          </div>
+          <div class="form__item">
+            <label for="formMessage" class="form__label">Review*:</label>
+            <textarea id="formMessage"  name="message" class="form__input"></textarea>
+          </div>
+          <button class="form__button">Send</button>
+        </form>
+      </div>
+    </div>
+
+    <div class="modal" data-modal="1">
+      <!--   Svg иконка для закрытия окна  -->
+      <svg class="modal__cross" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M23.954 21.03l-9.184-9.095 9.092-9.174-2.832-2.807-9.09 9.179-9.176-9.088-2.81 2.81 9.186 9.105-9.095 9.184 2.81 2.81 9.112-9.192 9.18 9.1z"/></svg>
+      <p class="modal__title">Заголовок окна 1</p>
+   </div>
+   
+   <div class="modal" data-modal="2">
+      <!--   Svg иконка для закрытия окна  -->
+      <svg class="modal__cross" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M23.954 21.03l-9.184-9.095 9.092-9.174-2.832-2.807-9.09 9.179-9.176-9.088-2.81 2.81 9.186 9.105-9.095 9.184 2.81 2.81 9.112-9.192 9.18 9.1z"/></svg>
+      <p class="modal__title">Заголовок окна 2</p>
+   </div>
+   
+   <!-- Подложка под модальным окном -->
+   <div class="overlay" id="overlay-modal"></div>
+          
+    <script src="js\main.js"></script>
   </body>
 
   <footer>
@@ -168,5 +208,7 @@
           </div>
         </div>        
     </section>
+
+
 </footer>
 </html>
