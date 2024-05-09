@@ -441,3 +441,22 @@ input[type="search"]::placeholder {
 
 
 /* Review Page */
+
+
+
+.shop-table {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.shop-table th {
+    padding: 35px;
+}
+
+.shop-table tr {
+padding: 0 50px;
+}
+
+.shop-table td {
+    vertical-align: middle;
+}
