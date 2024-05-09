@@ -447,16 +447,51 @@ input[type="search"]::placeholder {
 .shop-table {
     margin-left: auto;
     margin-right: auto;
+    margin-top: 100px;
 }
 
+thead {
+    font-weight: 700;
+}
 .shop-table th {
     padding: 35px;
+    border-bottom: 1px solid #000;
+    background-color: #e6e2e2;
 }
 
-.shop-table tr {
-padding: 0 50px;
+.shop-table__img {
+    width: 50%;
+}
+
+.shop-table__name-item {
+    width: 30%;
 }
 
 .shop-table td {
     vertical-align: middle;
+    border-bottom: 1px solid #000;
+    padding-top: 15px;
+}
+
+.shop-table tr:nth-child(odd) {
+    background: white;
+  }
+.shop-table tr:nth-child(even) {
+    background: #E8E6D1;
+  }
+
+.shop-table__cart-btn {
+    border: none;
+    border-radius: 5px;
+    background-color: #E58411;
+    color: #fff;
+    transition: 0.3s ease;
+    cursor: pointer;
+}
+
+.shop-table__cart-btn:hover {
+    border: none;
+    border-radius: 5px;
+    background-color: #f58905;
+    transform: scale(1.2);
 }
